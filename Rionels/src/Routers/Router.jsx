@@ -5,6 +5,7 @@ import Login from "../Pages/Authentication/Login/Login";
 import Registration from "../Pages/Authentication/Registration/Registration";
 import AuthRoute from "./AuthRoute";
 import Blog from "../Pages/Blog/Blog";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ])
 
