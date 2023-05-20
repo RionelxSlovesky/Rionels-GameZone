@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         <img src={logo} className='w-44'></img>
         <p className="font-bold">
-          Rionel's GAME-ZONE Ltd. <br />
+          Rionel&apos;s GAME-ZONE Ltd. <br />
           Bringing Happiness since 2010
         </p>
         <p>Copyright © 2023 - All right reserved</p>
