@@ -4,10 +4,10 @@ import bgVideo from "../../assets/bg-video.mp4";
 const Home = () => {
   return (
     <div>
-      <div className="text-secondary text-center absolute mt-64 px-16 z-20 left-0 right-0 top-0">
-        <h1 className="text-5xl">Largest Game Shop in BD</h1>
-        <h2 className="text-3xl my-6">JOIN THE HYPE!!!</h2>
-        <button className="btn btn-secondary btn-circle text-xl w-28">Join</button>
+      <div className="text-secondary text-center absolute z-20 left-0 right-0 top-0 mt-28 md:mt-64 px-16">
+        <h1 className="text-xl md:text-5xl">Largest Game Shop in BD</h1>
+        <h2 className="text-xl md:text-3xl md:my-6">JOIN THE HYPE!!!</h2>
+        <button className="btn btn-secondary btn-circle md:text-xl md:w-28">Join</button>
       </div>
       <div>
         <video
