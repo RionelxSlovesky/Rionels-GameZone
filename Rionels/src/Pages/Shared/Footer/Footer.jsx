@@ -4,7 +4,7 @@ import logo from '../../../assets/Rionel/vector/default-monochrome-white.svg'
 const Footer = () => {
   return (
     <div className='mt-64'>
-    <footer className="footer footer-center p-10 bg-black text-secondary fixed bottom-0 left-auto right-auto max-w-[1600px]">
+    <footer className="footer footer-center z-30 p-10 bg-black text-secondary fixed bottom-0 left-auto right-auto max-w-[1600px]">
       <div>
         <img src={logo} className='w-44'></img>
         <p className="font-bold">

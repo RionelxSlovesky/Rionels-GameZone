@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
 
 const Registration = () => {
+
+  const handleRegistration = event => {
+    event.preventDefault()
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoURL = form.photoURL.value;
+
+    
+    form.reset()
+  }
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -10,7 +23,7 @@ const Registration = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handleRegistration}>
           <div>
             <label
               htmlFor="name"
@@ -22,7 +35,7 @@ const Registration = () => {
               <input
                 id="name"
                 name="name"
-                type="name"
+                type="text"
                 autoComplete="name"
                 required
                 className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -80,7 +93,7 @@ const Registration = () => {
               <input
                 id="photoURL"
                 name="photoURL"
-                type="photoURL"
+                type="text"
                 required
                 className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />

@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import logo from "../../../assets/Rionel/vector/default-monochrome-white.svg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Header = () => {
-  const user = false;
+
+  const {user} = useContext(AuthContext)
 
   return (
     <div className="navbar bg-black text-secondary flex-col md:flex-row">
