@@ -1,15 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
 
-    const handleLogin = event => {
-        event.preventDefault()
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-    
-        form.reset()
-      }
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then(res => {
+        const loggedUser = res.user;
+        console.log(loggedUser)
+      })
+      .catch(err => {
+        console.log(err.message)
+      });
+
+    form.reset();
+  };
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
@@ -72,7 +84,12 @@ const Login = () => {
         </form>
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{" "}
-            <Link to='/register' className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register</Link>
+          <Link
+            to="/register"
+            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+          >
+            Register
+          </Link>
         </p>
       </div>
     </div>

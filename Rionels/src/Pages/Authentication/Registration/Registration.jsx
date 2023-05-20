@@ -1,18 +1,35 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Registration = () => {
+  const { signUp, updateUserProfile } = useContext(AuthContext);
 
-  const handleRegistration = event => {
-    event.preventDefault()
+  const handleRegistration = (event) => {
+    event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const photoURL = form.photoURL.value;
 
-    
-    form.reset()
-  }
+    signUp(email, password)
+      .then(res => {
+        const loggedUser = res.user;
+        console.log(loggedUser)
+        updateUserProfile(name,photoURL)
+        .then(res => console.log(res))
+        .catch(err => {
+          console.log(err.message)
+        })
+
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+    form.reset();
+  };
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-6 lg:px-8">
