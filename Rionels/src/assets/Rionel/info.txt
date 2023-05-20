@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Mothproof_Script
+font link: https://www.fontsquirrel.com/fonts/MothproofScript
+font author: 
+font author site: 
+
+
+icon designer: Chunk Icons
+icon designer link: /ChunkIcons
+        
+{"bg":"#FFD650","icon":"#99472D","font":"#ffffff","slogan":"#ffffff"}
+      
