@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -12,12 +12,12 @@ const Login = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then(res => {
+      .then((res) => {
         const loggedUser = res.user;
-        console.log(loggedUser)
+        console.log(loggedUser);
       })
-      .catch(err => {
-        console.log(err.message)
+      .catch((err) => {
+        console.log(err.message);
       });
 
     form.reset();
@@ -91,6 +91,12 @@ const Login = () => {
             Register
           </Link>
         </p>
+        <button
+          onClick={signInWithGoogle}
+          className="flex w-full mt-6 justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-red-500"
+        >
+          SignIn with Google
+        </button>
       </div>
     </div>
   );
