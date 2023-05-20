@@ -5,7 +5,7 @@ import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Header = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, loading, logOut} = useContext(AuthContext)
 
   return (
     <div className="navbar bg-black text-secondary flex-col md:flex-row">
@@ -28,11 +28,11 @@ const Header = () => {
             <Link>Blog</Link>
           </li>
         </ul>
-        {user ? (
+        {loading || (user ? (
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={user.photoURL} title={user.displayName}/>
               </div>
             </label>
             <ul
@@ -45,11 +45,14 @@ const Header = () => {
               <li>
                 <Link>Add a Toy</Link>
               </li>
+              <li>
+                <Link onClick={logOut}>Logout</Link>
+              </li>
             </ul>
           </div>
         ) : (
           <Link to='/login'>Login</Link>
-        )}
+        ))}
       </div>
     </div>
   );
