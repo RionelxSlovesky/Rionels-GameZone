@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+  const [error, setError] = useState('')
 
   useTitle('Login')
 
@@ -18,12 +20,12 @@ const Login = () => {
       .then((res) => {
         const loggedUser = res.user;
         console.log(loggedUser);
+        setError('')
+        form.reset();
       })
       .catch((err) => {
-        console.log(err.message);
+        setError(err.message);
       });
-
-    form.reset();
   };
 
   return (
@@ -83,6 +85,9 @@ const Login = () => {
             >
               Login
             </button>
+            {
+              error && <p className="text-red-500 font-bold text-center">{error}</p>
+            }
           </div>
         </form>
         <p className="mt-10 text-center text-sm text-gray-500">
