@@ -12,9 +12,23 @@ const MyToys = () => {
       .then((data) => setToys(data));
   }, []);
 
-  const handleDelete = (event) => {
+  const handleDelete = (toy, id) => {
     event.preventDefault();
-    console.log("DELETED");
+    const proceed = confirm("Are you sure you want to delete?");
+    if (proceed) {
+      fetch(`http://localhost:5000/toys/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            alert(`${toy} deleted successfully`);
+            const remaining = toys.filter(t => t._id !== id)
+            setToys(remaining)
+          }
+        });
+    }
   };
 
   return (

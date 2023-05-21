@@ -25,7 +25,7 @@ const MyToysRow = ({toy, handleDelete}) => {
           <button className="btn btn-ghost btn-xs">Update</button>
         </Link>
         <Link>
-          <button onClick={handleDelete} className="btn btn-ghost btn-xs">Delete</button>
+          <button onClick={() => handleDelete(toy.toyName, toy._id)} className="btn btn-ghost btn-xs">Delete</button>
         </Link>
       </th>
     </tr>
