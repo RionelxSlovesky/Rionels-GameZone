@@ -5,12 +5,11 @@ import { loginFirst } from "../Pages/Authentication/Login/Login";
 
 const PrivateRoute = ({children}) => {
     const { loading, user } = useContext(AuthContext);
-    loginFirst()
     
   if (loading) {
     return <h1>Loading</h1>;
   } else {
-    return (user ? children :  <Navigate to="/login"></Navigate>)
+    return (user ? children : <> {loginFirst()} <Navigate to="/login"></Navigate></>)
   }
 };
 
