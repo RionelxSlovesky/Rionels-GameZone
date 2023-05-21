@@ -1,9 +1,13 @@
+import { useLoaderData } from "react-router-dom";
 import cover from "../../../src/assets/Rionel/vector/isolated-monochrome-black.svg";
 import bgVideo from "../../assets/bg-video.mp4";
 import useTitle from "../../hooks/useTitle";
 import Gallery from "./Gallery/Gallery";
+import ShopByCategory from "./ShopByCategory/ShopByCategory";
 
 const Home = () => {
+
+  const toys = useLoaderData()
 
   useTitle('Home')
 
@@ -27,6 +31,8 @@ const Home = () => {
       <Gallery></Gallery>
 
       <img className="my-24 px-12" src={cover} alt="" />
+
+      <ShopByCategory toys={toys}></ShopByCategory>
 
 
     </div>

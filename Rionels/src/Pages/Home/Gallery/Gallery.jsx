@@ -1,8 +1,8 @@
 const Gallery = () => {
   return (
-    <div>
+    <div className="py-8">
       <h1 className="text-center text-5xl my-16">Gallery</h1>
-      <div className="flex flex-wrap justify-center gap-6 px-4">
+      <div className="flex flex-wrap justify-center gap-6 px-4 py-4">
         <img
           src="https://i.ibb.co/2Wy3JNn/thresh.jpg"
           alt=""
