@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddAToy = () => {
 
     const {user} = useContext(AuthContext)
+    const notify = (name) => toast(`${name} added!`);
 
     const handleAddToy = event => {
         event.preventDefault()
@@ -40,7 +42,7 @@ const AddAToy = () => {
         .then(res => res.json())
         .then(data => {
           if(data.insertedId){
-            alert('Product Added')
+            notify(toyName)
           }
         })
         .catch(err => console.log(err.message))
@@ -233,6 +235,7 @@ const AddAToy = () => {
           >
             Add Toy
           </button>
+          <ToastContainer />
         </div>
       </form>
     </div>
