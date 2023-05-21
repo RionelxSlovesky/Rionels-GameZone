@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div className="py-8">
+    <div className="py-8" data-aos="fade-right">
       <h1 className="text-center text-5xl my-16">Gallery</h1>
       <div className="flex flex-wrap justify-center gap-6 px-4 py-4">
         <img

@@ -31,7 +31,7 @@ const Home = () => {
 
       <Gallery></Gallery>
 
-      <img className="my-24 px-12" src={cover} alt="" />
+      <img className="my-24 px-12" src={cover} alt="" data-aos="fade-left"/>
 
       <ShopByCategory toys={toys}></ShopByCategory>
 
