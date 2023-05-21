@@ -1,11 +1,9 @@
-import { useContext } from "react";
 import AllToysRow from "./AllToysRow/AllToysRow";
 import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
 
     const toys = useLoaderData()
-    console.log(toys)
 
   return (
     <div className="overflow-x-auto w-full">
