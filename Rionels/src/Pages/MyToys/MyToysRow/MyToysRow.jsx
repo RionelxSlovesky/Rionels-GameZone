@@ -21,7 +21,7 @@ const MyToysRow = ({toy, handleDelete}) => {
       <td>${toy.price}</td>
       <td>{toy.quantity}</td>
       <th>
-        <Link>
+        <Link to={`/updateAToy/${toy._id}`}>
           <button className="btn btn-ghost btn-xs">Update</button>
         </Link>
         <Link>

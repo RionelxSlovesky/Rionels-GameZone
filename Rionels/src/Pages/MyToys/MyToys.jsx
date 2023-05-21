@@ -14,7 +14,7 @@ const MyToys = () => {
 
   const handleDelete = (toy, id) => {
     event.preventDefault();
-    const proceed = confirm("Are you sure you want to delete?");
+    const proceed = confirm(`Are you sure you want to delete ${toy}?`);
     if (proceed) {
       fetch(`http://localhost:5000/toys/${id}`, {
         method: "DELETE",
