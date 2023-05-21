@@ -5,7 +5,7 @@ const Blog = () => {
       <div className="card w-full bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Q1) What is an access token and refresh token? How do they work and where should we store them on the client-side?</h2>
-          <p className="text-lg">A: Access token and refresh token are authentication mechanisms used in token-based authentication systems. Access token represents the user's identity and is typically used to authorize access to protected resources or perform specific actions on behalf of the user; whereas, the primary purpose of refresh token is to obtain a new access token without requiring the user to reauthenticate with their credentials.</p>
+          <p className="text-lg">A: Access token and refresh token are authentication mechanisms used in token-based authentication systems. Access token represents the user&apos;s identity and is typically used to authorize access to protected resources or perform specific actions on behalf of the user; whereas, the primary purpose of refresh token is to obtain a new access token without requiring the user to reauthenticate with their credentials.</p>
           <p className="text-lg">In the client-side, we can store them either in the localStorage or in cookies.</p>
         </div>
       </div>

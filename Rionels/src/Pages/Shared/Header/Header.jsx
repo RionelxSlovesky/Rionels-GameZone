@@ -43,7 +43,7 @@ const Header = () => {
                 <Link>My Toys</Link>
               </li>
               <li>
-                <Link>Add a Toy</Link>
+                <Link to="/addAToy">Add a Toy</Link>
               </li>
               <li>
                 <Link onClick={logOut}>Logout</Link>
