@@ -1,8 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import MyToysRow from "./MyToysRow/MyToysRow";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
+  useTitle("My Toys");
+
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
@@ -24,15 +27,33 @@ const MyToys = () => {
           console.log(data);
           if (data.deletedCount > 0) {
             alert(`${toy} deleted successfully`);
-            const remaining = toys.filter(t => t._id !== id)
-            setToys(remaining)
+            const remaining = toys.filter((t) => t._id !== id);
+            setToys(remaining);
           }
         });
     }
   };
 
+  const handleSort = event => {
+    event.preventDefault()
+    const sort = event.target.value
+
+    fetch(`http://localhost:5000/toys?sellerEmail=${user.email}&sort=${sort}`)
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+
+    console.log(sort)
+  }
+
   return (
     <div>
+      <select className="select select-secondary w-full max-w-xs" onChange={handleSort}>
+        <option disabled selected>
+          Sort
+        </option>
+        <option value='1'>Price (low to high)</option>
+        <option value='-1'>Price (high to low)</option>
+      </select>
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
@@ -48,7 +69,11 @@ const MyToys = () => {
           <tbody>
             {/* row 1 */}
             {toys.map((toy) => (
-              <MyToysRow key={toy._id} toy={toy} handleDelete={handleDelete}></MyToysRow>
+              <MyToysRow
+                key={toy._id}
+                toy={toy}
+                handleDelete={handleDelete}
+              ></MyToysRow>
             ))}
           </tbody>
           {/* foot */}
