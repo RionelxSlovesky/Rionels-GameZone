@@ -12,7 +12,7 @@ const AddAToy = () => {
     const sellerName = form.sellerName.value;
     const sellerEmail = form.email.value;
     const toyName = form.toyName.value;
-    const price = form.price.value;
+    const price = parseInt(form.price.value);
     const subCategory = form.subCategory.value;
     const photoURL = form.photoURL.value;
     const rating = form.rating.value;

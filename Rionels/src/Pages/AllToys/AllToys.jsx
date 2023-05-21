@@ -1,9 +1,12 @@
+import useTitle from "../../hooks/useTitle";
 import AllToysRow from "./AllToysRow/AllToysRow";
 import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
 
-    const toys = useLoaderData()
+  useTitle('All Toys')
+
+  const toys = useLoaderData();
 
   return (
     <div className="overflow-x-auto w-full">
@@ -19,11 +22,10 @@ const AllToys = () => {
           </tr>
         </thead>
         <tbody>
-        {/* row 1 */}
-        {
-            toys.map(toy => <AllToysRow key={toy._id} toy={toy}></AllToysRow>)
-        }
-          
+          {/* row 1 */}
+          {toys.map((toy) => (
+            <AllToysRow key={toy._id} toy={toy}></AllToysRow>
+          ))}
         </tbody>
         {/* foot */}
         <tfoot>

@@ -1,7 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateAToy = () => {
+
+  useTitle("Update Toys");
+
   const toy = useLoaderData();
   const notify = () => toast(`Updated Successfully!`);
   const handleUpdateToy = (event) => {
@@ -44,7 +48,6 @@ const UpdateAToy = () => {
 
     notify(toy.toyName);
   };
-
 
   return (
     <div>
