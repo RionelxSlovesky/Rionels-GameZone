@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const UpdateAToy = () => {
   const toy = useLoaderData();
-  const notify = (name) => toast(`Updated Successfully!`);
+  const notify = () => toast(`Updated Successfully!`);
   const handleUpdateToy = (event) => {
     event.preventDefault();
 
@@ -37,7 +37,7 @@ const UpdateAToy = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          notify(toyName);
+          notify();
         }
       })
       .catch((err) => console.log(err.message));
