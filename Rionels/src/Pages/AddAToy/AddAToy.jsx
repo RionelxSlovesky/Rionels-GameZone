@@ -1,54 +1,53 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 const AddAToy = () => {
+  const { user } = useContext(AuthContext);
+  const notify = (name) => toast(`${name} added!`);
 
-    const {user} = useContext(AuthContext)
-    const notify = (name) => toast(`${name} added!`);
+  const handleAddToy = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.email.value;
+    const toyName = form.toyName.value;
+    const price = form.price.value;
+    const subCategory = form.subCategory.value;
+    const photoURL = form.photoURL.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const details = form.details.value;
 
-    const handleAddToy = event => {
-        event.preventDefault()
-        const form = event.target;
-        const sellerName = form.sellerName.value
-        const sellerEmail = form.email.value;
-        const toyName = form.toyName.value;
-        const price = form.price.value;
-        const subCategory = form.subCategory.value;
-        const photoURL = form.photoURL.value;
-        const rating = form.rating.value;
-        const quantity = form.quantity.value;
-        const details = form.details.value;
+    const toy = {
+      sellerName,
+      sellerEmail,
+      toyName,
+      price,
+      subCategory,
+      photoURL,
+      rating,
+      quantity,
+      details,
+    };
 
-        const toy = {
-          sellerName,
-          sellerEmail,
-          toyName,
-          price,
-          subCategory,
-          photoURL,
-          rating,
-          quantity,
-          details
+    fetch("http://localhost:5000/toys", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(toy),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          notify(toyName);
         }
+      })
+      .catch((err) => console.log(err.message));
 
-        fetch('http://localhost:5000/toys',{
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(toy)
-        })
-        .then(res => res.json())
-        .then(data => {
-          if(data.insertedId){
-            notify(toyName)
-          }
-        })
-        .catch(err => console.log(err.message))
-
-        form.reset()
-    }
+    form.reset();
+  };
 
   return (
     <div>
@@ -124,6 +123,7 @@ const AddAToy = () => {
                 <div className="mt-2">
                   <input
                     required
+                    min="1"
                     type="number"
                     name="price"
                     id="price"
@@ -181,6 +181,8 @@ const AddAToy = () => {
                 <div className="mt-2">
                   <input
                     required
+                    min="1"
+                    max="5"
                     type="number"
                     name="rating"
                     id="rating"
@@ -199,6 +201,7 @@ const AddAToy = () => {
                 <div className="mt-2">
                   <input
                     required
+                    min="1"
                     type="number"
                     name="quantity"
                     id="quantity"
