@@ -4,6 +4,7 @@ import bgVideo from "../../assets/bg-video.mp4";
 import useTitle from "../../hooks/useTitle";
 import Gallery from "./Gallery/Gallery";
 import ShopByCategory from "./ShopByCategory/ShopByCategory";
+import Contact from "./Contact/Contact";
 
 const Home = () => {
 
@@ -34,6 +35,7 @@ const Home = () => {
 
       <ShopByCategory toys={toys}></ShopByCategory>
 
+      <Contact></Contact>
 
     </div>
   );
