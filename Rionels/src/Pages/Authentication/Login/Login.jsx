@@ -2,6 +2,9 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import useTitle from "../../../hooks/useTitle";
+import { ToastContainer, toast } from "react-toastify";
+
+export const loginFirst = () => toast(`You have to log in first!`);
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -105,7 +108,9 @@ const Login = () => {
         >
           SignIn with Google
         </button>
+        
       </div>
+      <ToastContainer />
     </div>
   );
 };
