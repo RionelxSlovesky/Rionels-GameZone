@@ -7,6 +7,7 @@ import AuthRoute from "./AuthRoute";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AddAToy from "../Pages/AddAToy/AddAToy";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addAToy',
-                element: <AddAToy></AddAToy>
+                element: <PrivateRoute><AddAToy></AddAToy></PrivateRoute>
             }
         ]
     },
