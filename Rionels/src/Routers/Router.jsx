@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys')
             },
             {
                 path: '/login',
@@ -42,12 +42,12 @@ const router = createBrowserRouter([
             {
                 path: '/toys',
                 element: <AllToys></AllToys>,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys')
             },
             {
                 path: '/toys/:id',
                 element: <ToyDetails></ToyDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys/${params.id}`)
             },
             {
                 path: '/mytoys',
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/updateAToy/:id',
                 element: <PrivateRoute><UpdateAToy></UpdateAToy></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({params}) => fetch(`https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys/${params.id}`)
             }
         ]
     },

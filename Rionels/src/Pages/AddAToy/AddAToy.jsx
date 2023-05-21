@@ -33,7 +33,7 @@ const AddAToy = () => {
       details,
     };
 
-    fetch("http://localhost:5000/toys", {
+    fetch("https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

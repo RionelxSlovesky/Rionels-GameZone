@@ -10,7 +10,7 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys?sellerEmail=${user.email}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys?sellerEmail=${user.email}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -19,7 +19,7 @@ const MyToys = () => {
     event.preventDefault();
     const proceed = confirm(`Are you sure you want to delete ${toy}?`);
     if (proceed) {
-      fetch(`http://localhost:5000/toys/${id}`, {
+      fetch(`https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,7 +38,7 @@ const MyToys = () => {
     event.preventDefault()
     const sort = event.target.value
 
-    fetch(`http://localhost:5000/toys?sellerEmail=${user.email}&sort=${sort}`)
+    fetch(`https://b7a11-toy-marketplace-server-side-rionelx-slovesky.vercel.app/toys?sellerEmail=${user.email}&sort=${sort}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
 
