@@ -1,4 +1,9 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 const AddAToy = () => {
+
+    const {user} = useContext(AuthContext)
 
     const handleAddToy = event => {
         event.preventDefault()
@@ -13,7 +18,32 @@ const AddAToy = () => {
         const quantity = form.quantity.value;
         const details = form.details.value;
 
-        console.log(sellerName,sellerEmail,toyName,price,subCategory,photoURL,rating,quantity,details)
+        const toy = {
+          sellerName,
+          sellerEmail,
+          toyName,
+          price,
+          subCategory,
+          photoURL,
+          rating,
+          quantity,
+          details
+        }
+
+        fetch('http://localhost:5000/toys',{
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(toy)
+        })
+        .then(res => res.json())
+        .then(data => {
+          if(data.insertedId){
+            alert('Product Added')
+          }
+        })
+        .catch(err => console.log(err.message))
 
         form.reset()
     }
@@ -34,6 +64,7 @@ const AddAToy = () => {
                 <div className="mt-2">
                   <input
                     required
+                    defaultValue={user.displayName}
                     type="text"
                     name="sellerName"
                     id="sellerName"
@@ -52,6 +83,7 @@ const AddAToy = () => {
                 </label>
                 <div className="mt-2">
                   <input
+                    defaultValue={user.email}
                     required
                     type="email"
                     name="email"
